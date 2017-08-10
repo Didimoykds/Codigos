@@ -31,7 +31,7 @@ function obter_links()
     return $links;
 }
 
-function obter_conteudo()
+function obter_conteudoD()
 {
     $links = obter_links();
     foreach($links as $link){ // Passar por todas as páginas e coletar informações

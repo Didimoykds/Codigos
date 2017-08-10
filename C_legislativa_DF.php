@@ -85,10 +85,16 @@ function segunda_camada()
         $tags_a[] = $xml->div->div->div[$i]->h3->a; // Coletando todos os links importantes da página.
         $i++;
     }
-    foreach($tags_a as $tag_a){ // Para cada Link coletado
-        $link = str_para_link($tag_a['href'],$url); // Transformando String em link.
+    return $tags_a;
+}
+
+function obter_conteudoL(){
+    $tags = segunda_camada();
+    $url = primeira_camada(); // Link de página 
+    foreach($tags as $tag){ // Para cada Link coletado
+        $link = str_para_link($tag['href'],$url); // Transformando String em link.
         echo "<hr style='border-color:black;'/>";
-        echo "<h2>$tag_a: <a href=\"$link\">$link</a></h2>";
+        echo "<h2>$tag: <a href=\"$link\">$link</a></h2>";
         distribuir_dados($link); // Fará a distribuição de dados e irá escreve-los. 
     }
 }

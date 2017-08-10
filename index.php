@@ -4,7 +4,7 @@
         <?php require "C_deputados.php"; ?>
         <?php require "C_legislativa_DF.php"; ?>
         <title>Agent-Crawler</title>
-        <meta charset= "UTF-8"/>
+        <meta charset="UTF-8"/>
         <style>
             div{
                 align-content: center;
@@ -20,11 +20,11 @@
                 if(isset($_POST['comecar'])){
                     if($_POST['comecar'] == "Legislativa")
                     {
-                        segunda_camada();
+                        obter_conteudoL();
                     }
                     if($_POST['comecar'] == "Deputados")
                     {
-                        obter_conteudo();
+                        obter_conteudoD();
                     }
                 }
             ?>
