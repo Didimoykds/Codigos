@@ -6,14 +6,14 @@
 
 <h2>Prerequisites</h2> 
 <p>
-  >=PHP-5.6
+  >=PHP-5.6<br/>
   <a href="https://github.com/Didimoykds/Codigos/blob/master/processo-seletivo_AjaxTechBSB/simple_html_dom.php">Simple_html_dom 1.5</a>
 <strong>You can download from here: </strong>
 <ul>
   <li>Via Composer: composer require emanueleminotto/simple-html-dom </li>
   <li><a href="https://sourceforge.net/projects/simplehtmldom/files/">https://sourceforge.net/projects/simplehtmldom/files/</a> <br/>
   simple_html_dom.php with 54.9kB</li>
-  <li><a href="https://github.com/Didimoykds/Codigos/blob/master/processo-seletivo_AjaxTechBSB/simple_html_dom.php">https://github.com/Didimoykds/Codigos/blob/master/processo-seletivo_AjaxTechBSB/simple_html_dom.php</a></li>
+  <li><a href="https://github.com/Didimoykds/ajax-challenge/blob/master/simple_html_dom.php">https://github.com/Didimoykds/Codigos/blob/master/processo-seletivo_AjaxTechBSB/simple_html_dom.php</a></li>
 </ul>
 </p>
 <h2>Running the tests</h2>
