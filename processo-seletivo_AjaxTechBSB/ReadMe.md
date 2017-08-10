@@ -17,9 +17,9 @@
 </ul>
 </p>
 <h2>Running the tests</h2>
-
-<p>First of all you need to put everything on the same directory, and start the index.php, 
-choose a option and you are the content is going to load the information about the tenders of the page that you have choose.</p>
+<b>If you choose to download the file online you need to change the require directory</b>
+<p>First of all you need to put everything on the same directory, and   
+choose a option, after clicking on the option, the content is going to load the information about the tenders of the page that you have choose.</p>
 
 <h2>Acknowledgments</h2>
 <ul>
