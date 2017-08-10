@@ -7,7 +7,7 @@
 <h2>Prerequisites</h2> 
 <p>
   >=PHP-5.6
-  <a href="https://github.com/Didimoykds/Codigos/blob/master/processo-seletivo_AjaxTechBSB/simple_html_dom.php">Simple_html_dom 1.5</a> /  <br/><b>Obs: On packagist you can't find a document that works properly.</b>
+  <a href="https://github.com/Didimoykds/Codigos/blob/master/processo-seletivo_AjaxTechBSB/simple_html_dom.php">Simple_html_dom 1.5</a>
 <strong>You can download from here: </strong>
 <ul>
   <li><a href="https://sourceforge.net/projects/simplehtmldom/files/">https://sourceforge.net/projects/simplehtmldom/files/</a> <br/>
