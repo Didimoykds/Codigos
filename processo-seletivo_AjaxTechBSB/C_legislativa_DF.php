@@ -16,20 +16,21 @@ function recuperar_primeira_pagina($url)
 }
 function recuperar_segunda_pagina($url)
 {
-    $file = str_get_html(file_get_contents($url));
+    $file = str_get_html(file_get_contents($url)); // Recuperar conteúdo da segunda página
     $pattern = "/<div id=\"dm_cats\">(.*?)<\/div>.*?<br \/>/";
-    preg_match($pattern, $file, $matches);
+    preg_match($pattern, $file, $matches); // Selecionar div que possui links
     unset($matches[1]); // Garantir a unicidade do array
     $string = implode("", $matches);
-    return $string;
+    return $string; // Ira retornar a <div> com os links, em forma de string.
 }
-function str_para_link($link,$url)
-{
-    if (substr($link, 0, 1) == "/" && substr($link, 0, 2) != "//") {
-        $link = parse_url($url)["scheme"]."://".parse_url($url)["host"].$link;
+function str_para_link($link,$url) // Completar os links, com o scheme e o HOST, para que os links saiam com http://string /$link
+{                                 // Antes: /index.php/licitacoes/cat_view/1-licitacoes/3-pregao-presencial Depois: http://licitacoes.ssp.df.gov.br./index.php/licitacoes/cat_view/1-licitacoes/3-pregao-presencial
+    if (substr($link, 0, 1) == "/" && substr($link, 0, 2) != "//") { // Caso o primeiro caractere seja / e os dois primeiros diferentes de //
+        $link = parse_url($url)["scheme"]."://".parse_url($url)["host"].$link; // Vai pegar o scheme "http" ou "https" da página e colocar :// logo após vai pegar a url "www.******.com/"
     } 
     return $link;
 }
+
 
 function primeira_camada()
 {
@@ -46,15 +47,17 @@ function primeira_camada()
     return $newLink;
 }
 
-function distribuirDados($url){
-    $file = str_get_html(file_get_contents($url));
-    $xml = simplexml_load_string($file);
-    $resultado = $xml->xpath('//*[@id="dm_docs"]')[0];
-    $resultado2 = $xml->xpath('//*[@class="dm_row dm_light"]');
+function distribuirDados($url)
+{
+    $file = str_get_html(file_get_contents($url)); // Coletar dados da página.
+    $xml = simplexml_load_string($file); // transformar em objeto XML
+    $resultado = $xml->xpath('//*[@id="dm_docs"]')[0]; // Filtrar para coletar elemento que possuir ID="dm_docs"
+    $resultado2 = $xml->xpath('//*[@class="dm_row dm_light"]'); // Coletar todos elementos que possuirem a classe "dm_row_dm_light"
     
-    foreach($resultado2 as $objeto){
+    foreach($resultado2 as $objeto)
+    { // Para cada objeto, será pego um número de detalhes, com o objetivo de filtrar e mostrar somente o que é importante.
         $titulo = $resultado->h2;
-        $linkName = $objeto->h3->a;
+        $linkName = $objeto->h3->a; 
         $link = $objeto->h3->a['href'];
         $publicado = $objeto->div->table->tr->td[1];
         $descricao = $objeto->div[1]->p;
@@ -75,20 +78,26 @@ function distribuirDados($url){
 
 function segunda_camada()
 {
-    $url = primeira_camada();
-    $conteudo = recuperar_segunda_pagina($url);
-    $xml = simplexml_load_string("<string>".$conteudo."</string>");
+    $url = primeira_camada(); // Link de página 
+    $conteudo = recuperar_segunda_pagina($url); // Coletar conteúdo da segunda página
+    $xml = simplexml_load_string("<string>".$conteudo."</string>"); // Transformar em objeto XML
     $i = 0;
-    while(isset($xml->div->div->div[$i]->h3->a)){
-        $tags_a[] = $xml->div->div->div[$i]->h3->a;
+    while(isset($xml->div->div->div[$i]->h3->a)){ // Enquanto $xml estiver retornando valor, continue.
+        $tags_a[] = $xml->div->div->div[$i]->h3->a; // Coletando todos os links importantes da página.
         $i++;
     }
-    foreach($tags_a as $tag_a){
-        $link = str_para_link($tag_a['href'],$url);
+    foreach($tags_a as $tag_a){ // Para cada Link coletado
+        $link = str_para_link($tag_a['href'],$url); // Transformando String em link.
         echo "<hr style='border-color:green;'/>";
         echo "<h2>$tag_a: <a href=\"$link\">$link</a></h2>";
-        distribuirDados($link);
+        distribuirDados($link); // Fará a distribuição de dados e irá escreve-los. 
     }
 }
-
-segunda_camada();
+if(isset($_POST['comecar'])){
+    segunda_camada();
+}
+?>
+<a href="index.php"><b>Voltar</b></a>
+<form method="post">
+    <input type="submit" name="comecar" value="Come&#231;ar"/>
+</form>

@@ -44,8 +44,14 @@ function obter_conteudo()
         }
     }
     $string = implode("",$licitacoes);
-    return $string;
+    echo "$string";
 }
 
-$dados = obter_conteudo();
-echo "$dados";
+if(isset($_POST['comecar'])){
+    obter_conteudo();
+}
+?>
+<a href="index.php"><b>Voltar</b></a>
+<form method="post">
+    <input type="submit" name="comecar" value="Come&#231;ar"/>
+</form>
