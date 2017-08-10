@@ -1,5 +1,6 @@
 <?php
-require_once "vendor/autoload.php";
+    require_once "vendor/autoload.php";
+
 function filtroL($tagname, $constraint, $file)
 {
     $pattern = "/<$tagname $constraint>(.*?)<\/$tagname>/";
@@ -58,7 +59,7 @@ function distribuir_dados($url)
     { // Para cada objeto, será pego um número de detalhes, com o objetivo de filtrar e mostrar somente o que é importante.
         $titulo = $resultado->h2;
         $linkName = $objeto->h3->a; 
-        $link = $objeto->h3->a['href'];
+        $link = str_para_link($linkName['href'], $url);
         $publicado = $objeto->div->table->tr->td[1];
         $descricao = $objeto->div[1]->p;
         $descricao2 = $objeto->div[1]->p->span;
