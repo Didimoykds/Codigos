@@ -1,5 +1,6 @@
 <?php
-    require_once "./vendor/autoload.php";
+
+require_once "./vendor/autoload.php";
 
 function filtroL($tagname,$constraint,$file)
 {
@@ -26,8 +27,7 @@ function recuperar_segunda_pagina($url)
 }
 function str_para_link($link,$url) // Completar os links, com o scheme e o HOST, para que os links saiam com http://string /$link
 {                                 // Antes: /index.php/licitacoes/cat_view/1-licitacoes/3-pregao-presencial Depois: http://licitacoes.ssp.df.gov.br./index.php/licitacoes/cat_view/1-licitacoes/3-pregao-presencial
-    if (substr($link, 0, 1) == "/" && substr($link, 0, 2) != "//") 
-    { // Caso o primeiro caractere seja / e os dois primeiros diferentes de //
+    if (substr($link, 0, 1) == "/" && substr($link, 0, 2) != "//"){ // Caso o primeiro caractere seja / e os dois primeiros diferentes de //
         $link = parse_url($url)["scheme"]."://".parse_url($url)["host"].$link; // Vai pegar o scheme "http" ou "https" da página e colocar :// logo após vai pegar a url "www.******.com/"
     } 
     return $link;
@@ -54,8 +54,7 @@ function distribuir_dados($url)
     $resultado = $xml->xpath('//*[@id="dm_docs"]')[0]; // Filtrar para coletar elemento que possuir ID="dm_docs"
     $resultado2 = $xml->xpath('//*[@class="dm_row dm_light"]'); // Coletar todos elementos que possuirem a classe "dm_row_dm_light"
     
-    foreach($resultado2 as $objeto)
-    { // Para cada objeto, será pego um número de detalhes, com o objetivo de filtrar e mostrar somente o que é importante.
+    foreach($resultado2 as $objeto){ // Para cada objeto, será pego um número de detalhes, com o objetivo de filtrar e mostrar somente o que é importante.
         $titulo = $resultado->h2;
         $linkName = $objeto->h3->a; 
         $link = str_para_link($linkName['href'], $url);
