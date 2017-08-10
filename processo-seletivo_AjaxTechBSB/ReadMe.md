@@ -10,6 +10,7 @@
   <a href="https://github.com/Didimoykds/Codigos/blob/master/processo-seletivo_AjaxTechBSB/simple_html_dom.php">Simple_html_dom 1.5</a>
 <strong>You can download from here: </strong>
 <ul>
+  <li>Via Composer: composer require emanueleminotto/simple-html-dom </li>
   <li><a href="https://sourceforge.net/projects/simplehtmldom/files/">https://sourceforge.net/projects/simplehtmldom/files/</a> <br/>
   simple_html_dom.php with 54.9kB</li>
   <li><a href="https://github.com/Didimoykds/Codigos/blob/master/processo-seletivo_AjaxTechBSB/simple_html_dom.php">https://github.com/Didimoykds/Codigos/blob/master/processo-seletivo_AjaxTechBSB/simple_html_dom.php</a></li>
@@ -25,5 +26,6 @@ choose a option and you are the content is going to load the information about t
    <li><strong>S.C. Chen (me578022@gmail.com) :</strong> http://simplehtmldom.sourceforge.net/</li>
    <li><strong>howCodeORG :</strong> https://github.com/howCodeORG/howBot-Web-Crawler</li>
    <li><strong>Clever Techie :</strong> https://clevertechie.com/php/97/web-scraping-php-parse-imdb.com-movies-html</li>
+   <li><strong>Emanuele Minotto :</strong> https://github.com/EmanueleMinotto/simple-html-dom </li>
 </ul>
 	
