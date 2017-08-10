@@ -18,8 +18,10 @@
 </p>
 <h2>Running the tests</h2>
 <b>If you choose to download the file online you need to change the require directory</b>
-<p>First of all you need to put everything on the same directory, and   
-choose a option, after clicking on the option, the content is going to load the information about the tenders of the page that you have choose.</p>
+<p>First of all you need to put everything on the same directory and require the composer packet or put simple_html_dom there.</p>  
+<p>After doing the preparations steps, initiliaze index.php, the page is going to show some options, Legislativa, Deputados and Resetar.
+The Legislativa and Deputados are going to get the tenders from these websites and Resetar is going to clean the screen.
+</p>
 
 <h2>Acknowledgments</h2>
 <ul>
