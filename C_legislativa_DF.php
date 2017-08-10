@@ -1,7 +1,7 @@
 <?php
     require_once "./vendor/autoload.php";
 
-function filtroL($tagname, $constraint, $file)
+function filtroL($tagname,$constraint,$file)
 {
     $pattern = "/<$tagname $constraint>(.*?)<\/$tagname>/";
     preg_match($pattern,$file,$matches); //Utilizando Expressão Regular para filtrar o dado 
@@ -26,7 +26,8 @@ function recuperar_segunda_pagina($url)
 }
 function str_para_link($link,$url) // Completar os links, com o scheme e o HOST, para que os links saiam com http://string /$link
 {                                 // Antes: /index.php/licitacoes/cat_view/1-licitacoes/3-pregao-presencial Depois: http://licitacoes.ssp.df.gov.br./index.php/licitacoes/cat_view/1-licitacoes/3-pregao-presencial
-    if (substr($link, 0, 1) == "/" && substr($link, 0, 2) != "//") { // Caso o primeiro caractere seja / e os dois primeiros diferentes de //
+    if (substr($link, 0, 1) == "/" && substr($link, 0, 2) != "//") 
+    { // Caso o primeiro caractere seja / e os dois primeiros diferentes de //
         $link = parse_url($url)["scheme"]."://".parse_url($url)["host"].$link; // Vai pegar o scheme "http" ou "https" da página e colocar :// logo após vai pegar a url "www.******.com/"
     } 
     return $link;
@@ -75,23 +76,25 @@ function distribuir_dados($url)
     }
 }
 
-function segunda_camada()
+function segunda_camada($url) // Objetivo de coletar todas as tags da segunda camada.
 {
-    $url = primeira_camada(); // Link de página 
     $conteudo = recuperar_segunda_pagina($url); // Coletar conteúdo da segunda página
     $xml = simplexml_load_string("<string>".$conteudo."</string>"); // Transformar em objeto XML
     $i = 0;
-    while(isset($xml->div->div->div[$i]->h3->a)){ // Enquanto $xml estiver retornando valor, continue.
+    while(isset($xml->div->div->div[$i]->h3->a))// Enquanto $xml estiver retornando valor, continue.
+    { 
         $tags_a[] = $xml->div->div->div[$i]->h3->a; // Coletando todos os links importantes da página.
         $i++;
     }
     return $tags_a;
 }
 
-function obter_conteudoL(){
-    $tags = segunda_camada();
-    $url = primeira_camada(); // Link de página 
-    foreach($tags as $tag){ // Para cada Link coletado
+function obter_conteudoL()
+{
+    $url = primeira_camada(); // Link de página
+    $tags = segunda_camada($url); 
+    foreach($tags as $tag)
+    {
         $link = str_para_link($tag['href'],$url); // Transformando String em link.
         echo "<hr style='border-color:black;'/>";
         echo "<h2>$tag: <a href=\"$link\">$link</a></h2>";
