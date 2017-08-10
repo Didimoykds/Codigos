@@ -42,9 +42,7 @@ function primeira_camada()
     $titulo = $xml->a;
     $link = $xml->a['href'];
     $newLink = str_para_link($link,$url);
-    echo "<hr style='border-color:red;'/>";
     echo "<h1><strong>$titulo : </strong><a href=\"$newLink\">$newLink</a></h1>";
-    echo "<hr style='border-color:red;'/>";
     return $newLink;
 }
 
@@ -89,7 +87,6 @@ function segunda_camada()
     }
     foreach($tags_a as $tag_a){ // Para cada Link coletado
         $link = str_para_link($tag_a['href'],$url); // Transformando String em link.
-        echo "<hr style='border-color:green;'/>";
         echo "<h2>$tag_a: <a href=\"$link\">$link</a></h2>";
         distribuir_dados($link); // Fará a distribuição de dados e irá escreve-los. 
     }
