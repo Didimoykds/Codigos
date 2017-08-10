@@ -47,7 +47,7 @@ function primeira_camada()
     return $newLink;
 }
 
-function distribuirDados($url)
+function distribuir_dados($url)
 {
     $file = str_get_html(file_get_contents($url)); // Coletar dados da página.
     $xml = simplexml_load_string($file); // transformar em objeto XML
@@ -90,7 +90,7 @@ function segunda_camada()
         $link = str_para_link($tag_a['href'],$url); // Transformando String em link.
         echo "<hr style='border-color:green;'/>";
         echo "<h2>$tag_a: <a href=\"$link\">$link</a></h2>";
-        distribuirDados($link); // Fará a distribuição de dados e irá escreve-los. 
+        distribuir_dados($link); // Fará a distribuição de dados e irá escreve-los. 
     }
 }
 if(isset($_POST['comecar'])){
