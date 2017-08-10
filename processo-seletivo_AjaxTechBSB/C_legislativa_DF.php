@@ -87,6 +87,7 @@ function segunda_camada()
     }
     foreach($tags_a as $tag_a){ // Para cada Link coletado
         $link = str_para_link($tag_a['href'],$url); // Transformando String em link.
+        echo "<hr style='border-color:black;'/>";
         echo "<h2>$tag_a: <a href=\"$link\">$link</a></h2>";
         distribuir_dados($link); // Fará a distribuição de dados e irá escreve-los. 
     }
