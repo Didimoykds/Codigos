@@ -1,5 +1,6 @@
 <?php
-require "simple_html_dom.php";
+require_once "vendor/autoload.php";
+
 set_time_limit(0);
 function filtroD($tagname, $constraint, $file)
 {
