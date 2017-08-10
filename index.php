@@ -35,14 +35,10 @@
                         <label class="inpTit">C&Acirc;MARA LEGISLATIVA DO DISTRITO FEDERAL</label>
                         <input class="buscar" type="submit" name="comecar" value="Legislativa"/>
                     </li>
-                </ul>
-                 <ul>
                     <li>
                         <label class="inpTit">C&Acirc;MARA DOS DEPUTADOS</label>
                         <input class="buscar" type="submit" name="comecar" value="Deputados"/>
                     </li>
-                </ul>
-                <ul>
                     <li>
                         <label class="inpTit">Limpar</label>
                         <input class="limpeza" type="submit" name="comecar" value="Resetar"/>
