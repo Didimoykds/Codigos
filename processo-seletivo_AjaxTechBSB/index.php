@@ -1,22 +1,54 @@
 <!DOCTYPE html>
 <html
     <head>
+        <?php require "C_deputados.php"; ?>
+        <?php require "C_legislativa_DF.php"; ?>
         <title>Agent-Crawler</title>
         <meta charset="UTF-8"/>
         <style>
-            
+            div{
+                align-content: center;
+            }
+            ul{
+                list-style-type:none;
+            }
         </style>
     </head>
     <body>
         <div>
-            <h1>Agents</h1>        
-            <h2>C&Acirc;MARA LEGISLATIVA DO DISTRITO FEDERAL</h2>
-            <a href="C_legislativa_DF.php">C&Acirc;MARA LEGISLATIVA DO DISTRITO FEDERAL</a>
-            <h2>C&Acirc;MARA DOS DEPUTADOS</h2>
-            <a href="C_deputados.php">C&Acirc;MARA DOS DEPUTADOS</a>
             <?php
+                if(isset($_POST['comecar'])){
+                    if($_POST['comecar'] == "Legislativa")
+                    {
+                        segunda_camada();
+                    }
+                    if($_POST['comecar'] == "Deputados")
+                    {
+                        obter_conteudo();
+                    }
+                }
             ?>
-            
+            <h1>Agents</h1>
+            <form method="post">
+                <ul>
+                    <li>
+                        <label class="inpTit">C&Acirc;MARA LEGISLATIVA DO DISTRITO FEDERAL</label>
+                        <input class="buscar" type="submit" name="comecar" value="Legislativa"/>
+                    </li>
+                </ul>
+                 <ul>
+                    <li>
+                        <label class="inpTit">C&Acirc;MARA DOS DEPUTADOS</label>
+                        <input class="buscar" type="submit" name="comecar" value="Deputados"/>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <label class="inpTit">Limpar</label>
+                        <input class="limpeza" type="submit" name="comecar" value="Resetar"/>
+                    </li>
+                </ul>
+            </form>           
         </div>
     </body>
 </html>

@@ -1,6 +1,6 @@
 <?php
 require_once 'simple_html_dom.php';
-function filtro($tagname, $constraint, $file)
+function filtroL($tagname, $constraint, $file)
 {
     $pattern = "/<$tagname $constraint>(.*?)<\/$tagname>/";
     preg_match($pattern,$file,$matches); //Utilizando Expressão Regular para filtrar o dado 
@@ -11,7 +11,7 @@ function filtro($tagname, $constraint, $file)
 function recuperar_primeira_pagina($url)
 {
     $file = str_get_html(file_get_contents($url)); // Coletar o conteúdo e transformar em String
-    $resultado = filtro("div", "class=\"dm_row dm_light\"", $file); // Utilizando expressão regular para filtrar
+    $resultado = filtroL("div", "class=\"dm_row dm_light\"", $file); // Utilizando expressão regular para filtrar
     return $resultado;
 }
 function recuperar_segunda_pagina($url)
@@ -36,7 +36,7 @@ function primeira_camada()
 {
     $url = 'http://licitacoes.ssp.df.gov.br./index.php/licitacoes';
     $conteudo = recuperar_primeira_pagina($url);
-    $elemento = filtro("h3","class=\"dm_title\"",$conteudo);
+    $elemento = filtroL("h3","class=\"dm_title\"",$conteudo);
     $xml = simplexml_load_string("<string>".$elemento."</string>");
     $titulo = $xml->a;
     $link = $xml->a['href'];
@@ -93,11 +93,3 @@ function segunda_camada()
         distribuir_dados($link); // Fará a distribuição de dados e irá escreve-los. 
     }
 }
-if(isset($_POST['comecar'])){
-    segunda_camada();
-}
-?>
-<a href="index.php"><b>Voltar</b></a>
-<form method="post">
-    <input type="submit" name="comecar" value="Come&#231;ar"/>
-</form>

@@ -4,7 +4,7 @@
 
 <h2>Getting Started</h2>
 
-<h3>Prerequisites</h3> 
+<h2>Prerequisites</h2> 
 <p>
   >=PHP-5.6
   <a href="https://github.com/Didimoykds/Codigos/blob/master/processo-seletivo_AjaxTechBSB/simple_html_dom.php">Simple_html_dom 1.5</a> /  <br/><b>Obs: On packagist you can't find a document that works properly.</b>
@@ -15,11 +15,11 @@
   <li><a href="https://github.com/Didimoykds/Codigos/blob/master/processo-seletivo_AjaxTechBSB/simple_html_dom.php">https://github.com/Didimoykds/Codigos/blob/master/processo-seletivo_AjaxTechBSB/simple_html_dom.php</a></li>
 </ul>
 </p>
-<h3>Running the tests</h3>
+<h2>Running the tests</h2>
 
-<p>First of all you need to put everything on the same directory, and start the index.php, choose a option and you are going to get redirected to the page, showing information about the tenders.
+<p>First of all you need to put everything on the same directory, and start the index.php, choose a option and you are the content is going to load the information about the tenders of the page that you have choose.</p>
 
-<h3>Acknowledgments</h3>
+<h2>Acknowledgments</h2>
 <ul>
    <li><strong>S.C. Chen (me578022@gmail.com) :</strong> http://simplehtmldom.sourceforge.net/</li>
    <li><strong>howCodeORG :</strong> https://github.com/howCodeORG/howBot-Web-Crawler</li>
