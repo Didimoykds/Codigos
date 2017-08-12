@@ -2,8 +2,6 @@
 
 <p>The objective of this "Agent" is to collect specific links and informations from the website of Brazilian government.</p>
 
-<h2>Getting Started</h2>
-
 <h2>Prerequisites</h2> 
 <p>
   >=PHP-5.6<br/>
